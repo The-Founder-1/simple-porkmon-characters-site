@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content=<%=`${locals.profile.Name} - A porkmon character`%>>
+    <meta name="keywords" content="Porkmon character, comic characters">
+    <meta name="author" content="Francis Enechukwu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.profile.Name%> - Profile Page</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+        }
+        body{
+            width: 100%;
+         background-color: skyblue;
+         font-family: sans-serif;
+        } 
+        
+  header{
+    background-color: rgb(10, 4, 0);
+    color: #eee;
+    line-height: 1.7;
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3rem;
+    padding: .5em;
+    color: yellow;
+  }
+  main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top:6em;
+  }
+
+  .card{
+    margin: 0 auto;
+    max-width: 70%;
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius:10px;
+  }
+  .card > img{
+    width: 200px;
+  }
+  .card > section{
+    width: 100%;
+    color: #222;
+    padding-left: .5rem;
+    padding-bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 20px;
+  }
+
+  .card > section > .name{
+    font-size: 1.6rem;
+  }
+
+   .card > section > .type-section{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: .9rem;
+    color: rgb(35, 34, 34);
+   }
+
+    .card > section > .button{
+        line-height: 1.7;
+        color: white;
+        border: none;
+        padding: .5em;
+        background-color: blue;
+        border-radius: 5px;
+        color: #eee;
+        font-weight:bold;
+        text-decoration: none;
+    }
+    .back{
+      margin-top: 1em;
+      text-align: right;
+      float: right;
+      margin-right: .5em;
+      text-decoration: none;
+      background-color: black;
+      color: #eee;
+      line-height: 1.7;
+      padding: .5em .9em .5em .9em;
+      border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+      <header><span style="color: white;"><%= locals.profile.Name.toLocaleUpperCase() || null %> CHARATER</span></header>
+       <a href="/" class="back">Back</a>
+    <main>
+        <section class="card">
+            <img src=<%=locals.profile.img%> alt="Image of <%=`${locals.profile.Name}`%> character" >
+          
+            <section>
+               <p class="name"><b>Name:</b> <%= locals.profile.Name%></p>
+                <section class="type-section">
+                    <p><b>Type 1:</b> <%=locals.profile.Type1 || 'none'%></p>
+                    <p><b>Type 2:</b> <%=locals.profile.Type2 || 'none'%></p>
+                </section>
+                <p class="evolution"><b>Evolution:</b> <%=locals.profile.Evolution || 'none'%></p>
+                <a href=<%=`https://www.google.com/search?q=${locals.profile.Name}`%> target='_blank' rel="noopener noreferrer" class="button">Learn More about <%= locals.profile.Name%></a>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
