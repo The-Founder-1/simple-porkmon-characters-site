@@ -17,6 +17,7 @@
      
  @media screen and (min-width:320px) and (max-width: 767px) {
   /* Styles for all mobile views */
+
   body{
     background-color: var(--bg);
     width: 100%;
@@ -52,16 +53,79 @@
     border-radius: 5px;
     box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.3);
   }
+
+  .mobile-responsive{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+  .top-space{
+    margin-top: 2em;
+  }
+  .text-center{
+    text-align: center;
+  }
  }
- 
+  @media (min-width: 767px) {
+
+  body{
+    background-color: var(--bg);
+    width: 100%;
+  }
+  
+  header{
+    background-color: rgb(10, 4, 0);
+    color: #eee;
+    line-height: 1.7;
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3rem;
+    padding: .5em;
+  }
+
+  main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 1em;
+  }
+  main > div > a{
+    text-decoration: none;
+    color: rgb(5, 4, 0);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    font-weight: 600;
+  }
+  main > div{
+    background-color: white;
+    padding: .5em;
+    border-radius: 5px;
+    box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  }
+
+    .tablet-desktop-responsive{
+      display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    padding: 16px;
+    }
+    .top-space{
+    margin-top: 2em;
+  }
+  .text-center{
+    text-align: center;
+  }
+  }
     </style>
 </head>
 <body>
     <header>Porkmon Characters</header>
 
-    <main>
+    <main class="mobile-responsive top-space tablet-desktop-responsive">
       <% for(let i of locals.data){ %>
-        <div><a href=<%=`/${i.Name}`%>><%= i.Name %></a></div>
+        <div class="text-center"><a href=<%=`/${i.Name}`%> class="text-center"><%= i.Name %></a></div>
         <%} %>
     </main>
 </body>

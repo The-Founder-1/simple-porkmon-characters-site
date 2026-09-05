@@ -25,8 +25,7 @@ app.get('/',(req,res) =>{
 
 app.get('/:monsterName',(req,res) =>{
     const name = req.params.monsterName;
-   const data = DataFile;
-   const selected = data.filter(item =>item.Name === name);
+   const selected = DataFile.filter(item =>item.Name === name);
    selected[0].img = `/images/${selected[0].Name}.png`;
    const Data = selected[0];
    res.render('profile.ejs',{profile:Data});
